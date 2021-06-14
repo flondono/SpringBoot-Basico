@@ -4,10 +4,12 @@ import com.flondono.springbootbasico.models.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -42,13 +44,23 @@ public class IndexController {
     public String listar(Model model) {
 
         List<Usuario> usuarios = new ArrayList<>();
-        usuarios.add(new Usuario("Yessica", "Guerrero", "yessica@gmail.com"));
-        usuarios.add(new Usuario("Fernando", "Londoño", "fernando@gmail.com"));
-        usuarios.add(new Usuario("Juancho", "Londoño", "juancho@gmail.com"));
+        //usuarios.add(new Usuario("Yessica", "Guerrero", "yessica@gmail.com"));
+        //usuarios.add(new Usuario("Fernando", "Londoño", "fernando@gmail.com"));
+        //usuarios.add(new Usuario("Juancho", "Londoño", "juancho@gmail.com"));
 
         model.addAttribute("titulo", "Listado de usuarios");
-        model.addAttribute("usuarios", usuarios);
+        //model.addAttribute("usuarios", usuarios);
 
         return "listar";
+    }
+
+    @ModelAttribute("usuarios")
+    public List<Usuario> poblarUsuario() {
+
+        List<Usuario> usuarios = Arrays.asList(new Usuario("Yessica", "Guerrero", "yessica@gmail.com"),
+                new Usuario("Juancho", "Londoño", "juancho@gmail.com"),
+                new Usuario("Fernando", "Londoño", "fernando@gmail.com"));
+
+        return usuarios;
     }
 }
