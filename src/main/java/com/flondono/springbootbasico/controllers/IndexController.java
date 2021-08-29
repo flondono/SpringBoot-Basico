@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 /* una ruta base para todos lo métodos, una ruta genérica handler
- *  una forma muy común para mapear curds, listar,eliminar, actualizar*/
+ *  una forma muy común para mapear cruds, listar, eliminar, actualizar*/
 @RequestMapping("/app")
 public class IndexController {
 
